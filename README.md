@@ -20,7 +20,7 @@ git clone [TODO]
 ## Setup a node first:
 
 open a terminal window and run the following command
-[Verify permission of that file]
+[Verify permission of the sh file to run]
 for ubuntu
 ```bash
 ./nexa_ubuntu_node.sh
@@ -33,6 +33,7 @@ for mac run this script
 
 ## Logs
 **NOTE:** The blockchain syncing is running in a background as a service you can print the logs and check the logs of the node with the following command.
+
 for ubuntu 
 ```bash
 journalctl -u nexa -f 
@@ -53,3 +54,4 @@ for mac
 ```bash
 launchctl start com.nexa.myservice
 ```
+
