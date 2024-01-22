@@ -52,6 +52,6 @@ sudo systemctl stop nexa.service
 
 for mac
 ```bash
-launchctl start com.nexa.myservice
+launchctl stop com.nexa.myservice
 ```
 
