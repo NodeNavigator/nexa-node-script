@@ -78,7 +78,7 @@ if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Remove the previous folder
 	sudo rm -rf "$HOMEDIR"
   current_path=$(pwd)
-  launchctl start com.nexa.myservice
+  # launchctl stop com.nexa.myservice
 
 	# Set client config
 	nexad config --home "$HOMEDIR"

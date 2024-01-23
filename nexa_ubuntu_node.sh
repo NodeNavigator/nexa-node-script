@@ -5,6 +5,7 @@
 #  echo "This script must be run as root or with sudo." 1>&2
 #  exit 1
 #fi
+
 current_path=$(pwd)
 bash  $current_path/install-go.sh 
 bash install-go.sh
@@ -18,6 +19,7 @@ VERSION=$(awk -F '=' '/^VERSION_ID/{print $2}' /etc/os-release | awk '{print $1}
 # Define the binary and installation paths
 BINARY="nexad"
 INSTALL_PATH="/usr/local/bin/"
+FILE_PATH="/etc/systemd/system/nexa.service"
 
 # Check if the OS is Ubuntu and the version is either 20.04 or 22.04
 if [ "$OS" == "Ubuntu" ] && [ "$VERSION" == "20.04" -o "$VERSION" == "22.04" ]; then
@@ -80,7 +82,10 @@ fi
 if [[ $overwrite == "y" || $overwrite == "Y" ]]; then
 	# Remove the previous folder
 	sudo rm -rf "$HOMEDIR"
+
+if [ -e "$FILE_PATH" ]; then
     sudo systemctl stop nexa.service
+fi
 	# Set client config
 	nexad config --home "$HOMEDIR"
 	nexad config chain-id $CHAINID --home "$HOMEDIR"
